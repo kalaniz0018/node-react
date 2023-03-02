@@ -1,11 +1,16 @@
-import express from 'express';
+import express from "express";
 const app = express();
 const port = 3001;
+
+export  interface QueryPayload {
+  foo:string
+}
 
 app.get("/data", (req, res) => {
   //cuando tener problemas con los cors
   //res.serHeader('Access-Control-Allaw-Origin', '*')
-  res.json({ foo: "bar" });
+  const data: QueryPayload  = { foo: "bar" }
+  res.json(data);
 });
 
 app.listen(port, () => {
